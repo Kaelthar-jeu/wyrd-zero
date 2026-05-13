@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wyrd Zéro — Prologue Gratuit | Zorveth</title>
+<meta property="og:title" content="Wyrd Zéro — Lire le Prologue Gratuitement">
+<meta property="og:description" content="Il est mort en 9 minutes. Ce qui s'est relevé n'était plus tout à fait lui. Lisez le prologue de Wyrd Zéro, le nouveau roman LitRPG viking de Zorveth.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080a0d;
+    --deep: #0d1117;
+    --panel: #111820;
+    --border: #1a2535;
+    --blue: #4fc3f7;
+    --blue-dim: #1a3a52;
+    --blue-glow: rgba(79,195,247,0.15);
+    --ice: #e8f4f8;
+    --ice-dim: #8ba8b5;
+    --red: #c0392b;
+    --red-dim: rgba(192,57,43,0.2);
+    --gold: #c9a84c;
+    --text: #d4dde6;
+    --mono: 'Share Tech Mono', monospace;
+    --serif: 'IM Fell English', serif;
+    --display: 'Cinzel', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(79,195,247,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 100%, rgba(79,195,247,0.04) 0%, transparent 60%),
+      var(--black);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(52px, 10vw, 108px);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--ice);
+    text-shadow:
+      0 0 60px rgba(79,195,247,0.25),
+      0 0 120px rgba(79,195,247,0.1);
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-zero {
+    color: var(--blue);
+    text-shadow:
+      0 0 40px rgba(79,195,247,0.6),
+      0 0 80px rgba(79,195,247,0.3);
+  }
+
+  .hero-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--ice-dim);
+    margin-top: 12px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--ice-dim);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-tagline strong {
+    color: var(--ice);
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blue-glow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-btn:hover::before { transform: scaleX(1); }
+  .cta-btn:hover {
+    color: var(--ice);
+    box-shadow: 0 0 30px rgba(79,195,247,0.2);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--ice-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.4s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+
+  /* ── SYSTÈME STATS (prologue) ── */
+  .stat-block {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.7;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    padding: 20px 24px;
+    margin: 32px auto;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(79,195,247,0.05), inset 0 0 20px rgba(79,195,247,0.03);
+  }
+
+  .stat-block.dead {
+    border-left-color: var(--red);
+    box-shadow: 0 0 30px rgba(192,57,43,0.05), inset 0 0 20px rgba(192,57,43,0.03);
+  }
+
+  .stat-name { color: var(--blue); margin-bottom: 4px; font-size: 11px; letter-spacing: 0.15em; }
+  .stat-name.dead-name { color: var(--red); }
+  .stat-bar { display: flex; justify-content: space-between; color: var(--text); }
+  .stat-val { color: var(--ice); }
+  .stat-label { color: var(--gold); }
+  .stat-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  .stat-section { color: var(--ice-dim); font-size: 10px; letter-spacing: 0.1em; margin: 10px 0 4px; text-transform: uppercase; }
+  .stat-ymnir { color: var(--blue); margin-top: 10px; font-size: 11px; }
+
+  /* ── NOTIFICATION ── */
+  .notif {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: rgba(79,195,247,0.06);
+    border: 1px solid rgba(79,195,247,0.2);
+    color: var(--blue);
+    padding: 8px 16px;
+    margin: 16px auto;
+    max-width: 600px;
+    display: block;
+  }
+
+  .notif.warn {
+    background: var(--red-dim);
+    border-color: rgba(192,57,43,0.4);
+    color: #e74c3c;
+  }
+
+  /* ── PROLOGUE LAYOUT ── */
+  .prologue-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .chapter-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chapter-header .prologue-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .chapter-header h2 {
+    font-family: var(--display);
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    color: var(--ice);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .chapter-header .legend {
+    font-style: italic;
+    color: var(--ice-dim);
+    font-size: 15px;
+  }
+
+  .section-num {
+    font-family: var(--display);
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--blue);
+    text-align: center;
+    margin: 56px 0 28px;
+    display: block;
+  }
+
+  .separator {
+    text-align: center;
+    color: var(--blue);
+    font-size: 18px;
+    margin: 48px 0;
+    letter-spacing: 0.5em;
+    opacity: 0.4;
+  }
+
+  p {
+    margin-bottom: 20px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .drop-cap::first-letter {
+    font-family: var(--display);
+    font-size: 4em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.75;
+    margin: 0.08em 0.1em 0 0;
+    color: var(--blue);
+    text-shadow: 0 0 20px rgba(79,195,247,0.4);
+  }
+
+  em { color: var(--ice-dim); }
+
+  .ymnir-dialogue {
+    font-style: italic;
+    color: var(--ice-dim);
+    border-left: 2px solid var(--blue-dim);
+    padding-left: 20px;
+    margin: 24px 0;
+  }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: linear-gradient(to bottom, var(--black), var(--deep));
+    border-top: 1px solid var(--border);
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .footer-cta .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .footer-cta h3 {
+    font-family: var(--display);
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 600;
+    color: var(--ice);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-cta p {
+    font-style: italic;
+    color: var(--ice-dim);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .author-sig {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ice-dim);
+    margin-top: 60px;
+  }
+
+  .author-sig span { color: var(--blue); }
+
+  /* ── STICKY HEADER ── */
+  .sticky-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(8,10,13,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sticky-bar.visible { transform: translateY(0); }
+
+  .sticky-title {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ice);
+    letter-spacing: 0.1em;
+  }
+
+  .sticky-title span { color: var(--blue); }
+
+  .sticky-cta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    text-decoration: none;
+    border: 1px solid var(--blue-dim);
+    padding: 6px 16px;
+    transition: all 0.2s;
+  }
+
+  .sticky-cta:hover { background: var(--blue-glow); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-line {
+    0%, 100% { opacity: 0.3; }
+    50%       { opacity: 1; }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  .blink { animation: blink 2s ease-in-out infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .stat-block { font-size: 10px; padding: 16px; }
+    body { font-size: 15px; }
+    .prologue-container { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky bar -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-title">WYRD <span>ZÉRO</span> — Zorveth</div>
+  <a href="#cta" class="sticky-cta">Suivre la sortie</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">[ Lecture gratuite — Prologue officiel ]</div>
+  <h1 class="hero-title">WYRD <span class="hero-zero">ZÉRO</span></h1>
+  <div class="hero-sub">Zorveth &nbsp;·&nbsp; LitRPG Viking &nbsp;·&nbsp; Tome I</div>
+  <p class="hero-tagline">
+    <strong>Il est mort en neuf minutes.</strong><br>
+    Ce qui s'est relevé à l'aube n'était plus tout à fait lui.
+  </p>
+  <a href="#prologue" class="cta-btn">Lire le prologue</a>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>défiler</span>
+  </div>
+</section>
+
+<!-- PROLOGUE -->
+<article class="prologue-container" id="prologue">
+
+  <div class="chapter-header">
+    <div class="prologue-eyebrow">[ Prologue — L'Inachevé ]</div>
+    <h2>WYRD ZÉRO</h2>
+    <p class="legend">La légende d'Ulfrek le Fendu ne commence pas ici.<br>Celle de Björn Halgrïm, si.</p>
+    <p class="legend" style="margin-top:8px; font-size:13px; color: var(--blue);">— Zorveth —</p>
+  </div>
+
+  <!-- STAT BLOCK Ulfrek -->
+  <div class="stat-block">
+    <div class="stat-name">ULFREK LE FENDU</div>
+    <div class="stat-bar"><span>Niveau</span><span class="stat-val">47</span></div>
+    <div class="stat-bar"><span>Wyrd</span><span class="stat-label">891 — LÉGENDAIRE</span></div>
+    <hr class="stat-divider">
+    <div class="stat-section">Corps</div>
+    <div class="stat-bar"><span>Force</span><span class="stat-val">94</span></div>
+    <div class="stat-bar"><span>Endurance</span><span class="stat-val">88</span></div>
+    <div class="stat-bar"><span>Agilité</span><span class="stat-val">71</span></div>
+    <div class="stat-bar"><span>Résistance</span><span class="stat-val">85</span></div>
+    <div class="stat-section">Combat</div>
+    <div class="stat-bar"><span>Maîtrise hache</span><span class="stat-val">97</span></div>
+    <div class="stat-bar"><span>Instinct</span><span class="stat-val">83</span></div>
+    <div class="stat-bar"><span>Brutalité</span><span class="stat-val">91</span></div>
+    <div class="stat-section">Runes actives</div>
+    <div class="stat-bar"><span>Rune de Guerre</span><span class="stat-label">[RANG V] ⚔</span></div>
+    <div class="stat-bar"><span>Rune de Chair</span><span class="stat-label">[RANG IV] 🩸</span></div>
+    <div class="stat-bar"><span>Rune du Fracas</span><span class="stat-label">[RANG IV] 💥</span></div>
+    <hr class="stat-divider">
+    <div class="stat-ymnir blink">Ymnir observe.</div>
+  </div>
+
+  <span class="section-num">I.</span>
+
+  <p class="drop-cap">Le vent ne soufflait pas.</p>
+  <p>C'était la première chose étrange. Dans les hauteurs de Skarveld, le vent soufflait toujours — un hurlement constant qui descendait des crêtes glacées comme une armée invisible, arrachant les manteaux, mordant les visages, repoussant les hommes ordinaires avant même qu'ils aperçoivent les ruines. Ulfrek avait gravi cette montagne des dizaines de fois. Il ne l'avait jamais connue silencieuse.</p>
+  <p>Il s'arrêta au bord du plateau.</p>
+  <p>Devant lui s'étendait ce que les anciens appelaient le Cercle de Brûlure — une vaste esplanade de pierre noire sans végétation, sans habitant, que même les corbeaux d'Odin évitaient depuis des générations. En son centre, les ruines d'une structure innommable. Ni temple, ni forteresse. Quelque chose d'antérieur aux deux, quelque chose qui avait existé avant que les hommes apprennent à désigner les choses.</p>
+  <p>Ulfrek posa une main sur le manche de sa hache.</p>
+  <p>Grindjär. La Fendante. Quatre-vingt-sept livres de fer noir forgé dans les entrailles du Skarveld, équilibrée pour sa main et pour nulle autre. Vingt-trois ans de port. Des encoches sur le manche — une pour chaque adversaire dont il avait jugé la mort digne d'être mémorisée. Quarante et une encoches. Les autres n'avaient mérité aucun souvenir.</p>
+  <p>Il descendit sur le plateau.</p>
+
+  <div class="notif">[ Rune de Guerre [RANG V] : en veille — activation disponible ]</div>
+
+  <p>Ses bottes crissèrent sur la pierre noire. Le son portait étrangement dans ce silence absolu — d'une netteté, d'une précision inhabituelles, l'air lui-même semblait retenir son souffle. Ulfrek connaissait ce type de silence. Il précédait toujours quelque chose.</p>
+  <p>Il l'avait cherché pendant trois semaines.</p>
+  <p>Trois semaines depuis que le vieux Hákon lui avait parlé, dans la salle enfumée de Grimsvik, avec cette voix tremblante que les vieux hommes prenaient quand ils voulaient paraître sages et n'étaient en réalité que terrifiés. Il y avait quelque chose dans le Skarveld, avait dit Hákon. Une présence ancienne. Quelque chose qui se réveillait par cycles, tous les cent ans, quelque chose qui avait effacé des guerriers, des clans entiers, quelque chose que personne n'avait jamais affronté et survécu.</p>
+  <p>Ulfrek l'avait écouté jusqu'au bout. Puis il avait souri.</p>
+  <p>— Alors je serai le premier.</p>
+  <p>Hákon l'avait regardé comme on regarde un homme déjà mort.</p>
+
+  <div class="separator">⁂</div>
+
+  <span class="section-num">II.</span>
+
+  <p>Il atteignit le centre du cercle.</p>
+  <p>Les ruines se dressaient autour de lui en colonnes brisées, certaines hautes de trois hommes, d'autres réduites à des moignons affleurant la pierre noire. Entre elles, des gravures — des symboles antérieurs aux runes, illisibles même pour les völvas les plus âgées. Ulfrek les ignora. Il ne venait pas pour étudier.</p>
+  <p>Il venait pour combattre.</p>
+  <p>— Je sais que tu es là, dit-il à voix haute. Sa voix ne résonna pas. Elle fut absorbée par le silence, avalée, effacée. Je m'appelle Ulfrek le Fendu. J'ai quarante et une encoches sur ma hache et de la place pour une quarante-deuxième. Alors montre-toi.</p>
+  <p>Rien ne répondit.</p>
+  <p>Pendant un long moment, il ne se passa absolument rien. Le plateau restait vide. Les colonnes brisées se dressaient dans l'immobilité. Le silence continuait à peser comme une masse physique.</p>
+  <p>Puis.</p>
+  <p>Un mouvement.</p>
+  <p>Une présence, simplement. Quelque chose qui était déjà là depuis le début et choisissait enfin de se laisser voir.</p>
+
+  <div class="notif">[ ENTITÉ DÉTECTÉE — Classement : HORS CATALOGUE — Wyrd réaction : ALERTE ]</div>
+
+  <p>Il était debout à vingt pas d'Ulfrek.</p>
+  <p>La première chose qu'Ulfrek remarqua fut la taille. Identique à la sienne — même stature, même gabarit de guerrier taillé dans de la pierre vivante. Il ne s'y attendait pas. Depuis trois semaines, il avait imaginé quelque chose de colossal, un être qui écraserait le plateau de son seul poids. Un égal, à la place.</p>
+  <p>La deuxième chose fut l'absence.</p>
+  <p>Des sections du corps manquaient. Des blessures ou des cicatrices n'auraient rien expliqué — la création de cette chose avait été interrompue avant d'être achevée, voilà ce que les yeux lisaient. Au flanc gauche, un vide noir pulsait faiblement, exposant quelque chose qui n'était ni chair ni néant. Le visage était presque humain. Presque. Deux yeux sans pupilles, d'un blanc laiteux, posés sur Ulfrek avec une qualité d'attention qui n'avait rien à voir avec la curiosité ni avec la menace — quelque chose d'antérieur aux deux. L'attention d'une chose qui n'avait jamais appris à voir les êtres vivants autrement que comme des variables dans un calcul. Aucune colère. Aucune faim. Juste le traitement.</p>
+  <p>Dans sa main droite, quelque chose qui ressemblait à une hache.</p>
+  <p>Forgée dans un matériau sans nom — ni fer, ni acier, ni os. Quelque chose d'antérieur aux métaux, quelque chose qui avait existé avant que les hommes apprennent à fondre et à forger. Elle n'émettait aucune lumière. Elle l'absorbait.</p>
+  <p>Ulfrek sentit quelque chose qu'il n'avait pas ressenti depuis longtemps. Un frisson. Il le reconnut à peine tant c'était lointain. Le dernier remontait à ses dix-neuf ans — son premier vrai combat, avant les encoches, avant la légende. L'avertissement instinctif du corps à sa propre conscience : <em>attention. Ceci est différent.</em></p>
+  <p>Il leva Grindjär.</p>
+  <p>— Bien, dit-il. Tu as l'air intéressant.</p>
+
+  <div class="separator">⁂</div>
+
+  <span class="section-num">III.</span>
+
+  <p>La chose ne bougea pas d'abord.</p>
+  <p>Elle le regarda. Deux secondes. Trois. Cinq. Le temps d'un calcul. Puis un pas en avant.</p>
+  <p>Un seul pas.</p>
+  <p>Ulfrek activa sa Rune de Guerre.</p>
+
+  <div class="notif">[ Rune de Guerre [RANG V] ⚔ — ACTIVÉE — Force +31 / Brutalité +22 / Instinct +18 ]</div>
+
+  <p>Le monde vira au rouge.</p>
+  <p>Quand la Rune de Guerre montait au Rang V, les capteurs du système surchargeaient le regard d'Ulfrek d'une nuance carmin qui rendait chaque muscle de l'adversaire lisible, chaque micro-mouvement anticipable, chaque faille dans une garde visible comme une porte ouverte. Des années de combat pour atteindre ce rang — des milliers de coups portés et reçus, une progression lente et brutale jusqu'au sommet de ce que le système permettait à un humain d'atteindre.</p>
+  <p>Il chargea.</p>
+  <p>Quarante mètres en six secondes. Grindjär levée en arc latéral, cent trente livres de guerrier et quatre-vingt-sept livres de fer noir projetés dans une trajectoire parfaite — une attaque portée des milliers de fois, affinée, sculptée, transformée en quelque chose d'aussi précis qu'un scalpel et d'aussi dévastateur qu'une avalanche.</p>
+  <p>La hache frappa.</p>
+  <p>Et rien ne se passa.</p>
+  <p>La sensation la plus déconcertante qu'Ulfrek eût jamais éprouvée dans un combat. La chose n'avait ni esquivé ni dévié le coup. Elle avait reçu Grindjär en plein flanc gauche, dans la section de vide noir pulsant, et le choc était remonté dans les bras d'Ulfrek comme une frappe dans de la roche vive. Sa hache s'était arrêtée net. Sans s'enfoncer. Sans glisser. Arrêtée.</p>
+
+  <div class="notif">[ Rune de Chair [RANG IV] 🩸 — ACTIVÉE — Régénération +44 / Résistance à la douleur +38 ]</div>
+  <div class="notif warn">[ DÉGÂTS INFLIGÉS : 0 ]</div>
+
+  <p>Zéro.</p>
+  <p>Ulfrek recula d'un pas, mâchoires serrées. Zéro dégâts. Une première. Grindjär au Rang V de Maîtrise, la Rune de Guerre active — même les Jötnar saignaient quand il frappait.</p>
+  <p>La chose le regardait. Le même blanc des yeux. La même qualité d'attention qui n'appartenait à aucune catégorie qu'Ulfrek connaissait — ni prédateur, ni guerrier, ni ennemi. Une chose qui n'avait jamais su ce qu'était un combat parce qu'elle n'avait jamais eu besoin de le savoir. Elle traitait. Elle enregistrait. Elle concluait. La notion de danger lui était aussi étrangère que la notion de peur.</p>
+  <p>Puis elle attaqua.</p>
+  <p>Rapide. D'une rapidité sans sens physique pour quelque chose de sa taille — un coup horizontal, venu de nulle part, si soudain qu'Ulfrek n'eut que le temps d'incliner le torse.</p>
+  <p>La lame passa à deux centimètres de sa gorge.</p>
+  <p>Il sentit le déplacement d'air. Chaud. Étrangement chaud.</p>
+
+  <div class="notif">[ ESQUIVE : PARTIELLE — Endurance -12 — Instinct : mise en garde ]</div>
+
+  <p>Ulfrek souffla fort par le nez. Bien. D'accord. Donc comme ça.</p>
+
+  <div class="separator">⁂</div>
+
+  <span class="section-num">IV — V — VI.</span>
+
+  <p>Pendant dix minutes, ils dansèrent.</p>
+  <p>Ulfrek attaquait par séquences courtes — deux, trois coups maximum, jamais le même angle deux fois. Un travail de test. Le flanc droit : solide, résistance anormale mais réelle, Grindjär s'enfonçait de quelques millimètres avant d'être stoppée. L'épaule gauche : le vide absorbait tout. Les jambes : une réaction différente, quelque chose de plus proche de la chair normale — mais la chose reculait systématiquement avant l'impact complet, comme si chaque trajectoire lui était déjà connue avant qu'Ulfrek la déclenche.</p>
+  <p>Elle le savait.</p>
+  <p>C'était ça, le problème. Ce que ses yeux lui avaient dit dès le début sans qu'il veuille l'entendre — cette chose ne combattait avec aucun instinct, aucune rage, aucune stratégie. Elle calculait. Chaque mouvement d'Ulfrek analysé en temps réel, chaque pattern identifié, chaque habitude enregistrée. Un adversaire qui apprenait plus vite qu'il n'attaquait.</p>
+
+  <div class="notif warn">[ Rune de Guerre [RANG V] ⚔ — SURCHARGE — Durée restante : 4 min 12 sec ]</div>
+  <div class="notif warn">[ Endurance : 61 / 88 — Résistance : 74 / 85 ]</div>
+
+  <p>Les stats descendaient. La chose, elle, n'avait toujours aucune barre visible dans le système — Ymnir lui-même refusait de la cataloguer.</p>
+  <p>Son meilleur enchaînement, exécuté à pleine puissance avec une Rune de Guerre au Rang V, venait d'infliger trois points de dégâts.</p>
+  <p>Pour la première fois depuis des années, Ulfrek le Fendu se demanda s'il avait fait une erreur.</p>
+  <p>Ce qui suivit dura trois minutes.</p>
+  <p>La chose était partout. Une vitesse qui rendait la localisation impossible — elle n'occupait plus une position, elle occupait l'espace entier autour d'Ulfrek en même temps. En face, puis sur le flanc, puis derrière avant que le cerveau finisse de traiter la première information. Une vitesse sans rapport avec le corps. Quelque chose de cognitif, presque — la décision de frapper qui précédait le mouvement d'une fraction de seconde impossible à combler.</p>
+
+  <div class="notif warn">[ DÉGÂTS REÇUS : 134 — Endurance : 22 / 88 — Résistance : 31 / 85 ]</div>
+  <div class="notif warn">[ Rune de Chair [RANG IV] 🩸 — SURCHARGE — Régénération insuffisante ]</div>
+  <div class="notif warn">[ AVERTISSEMENT : seuil critique approché ]</div>
+
+  <p>Ulfrek crachait du sang.</p>
+  <p>La chose l'attrapa par la gorge.</p>
+  <p>Une main. Elle stoppa sa charge — cent trente livres en mouvement pleine vitesse — sans reculer d'un centimètre, sans que rien dans sa posture change, sans que ses yeux blancs cillent. Les doigts se refermèrent autour de la gorge d'Ulfrek avec la précision d'un étau calibré. Geste fonctionnel, dénué de toute cruauté, ce qui était pire. La cruauté aurait impliqué qu'il comptait pour quelque chose.</p>
+  <p>Et dans ces yeux blancs sans pupilles, Ulfrek comprit quelque chose qu'il aurait dû comprendre depuis le début : certaines choses existaient dans un registre différent, un registre où le niveau, les stats, les runes et la volonté n'avaient aucune prise. Face à elles, un niveau 47 avait la pertinence d'un enfant de cinq ans brandissant un bâton. Et le pire — c'est que la chose en face de lui ne savait même pas qu'elle était en train de gagner. Elle ne savait pas ce qu'était gagner. Elle terminait un calcul.</p>
+  <p>Il laissa tomber Grindjär.</p>
+
+  <div class="notif warn">[ ÉTAT CRITIQUE — Endurance : 4 / 88 — Résistance : 6 / 85 ]</div>
+  <div class="notif warn">[ Rune de Guerre ⚔ — ÉPUISÉE ] [ Rune de Chair 🩸 — ÉPUISÉE ] [ Rune du Fracas 💥 — ÉPUISÉE ]</div>
+  <div class="notif warn">[ AVERTISSEMENT FATAL : mort imminente ]</div>
+
+  <p>— Tu n'as aucune haine, dit Ulfrek. Sa voix sortit brisée, réduite à un souffle rauque. Mais il voulait dire ça. Avant la fin, il voulait dire ça. Tu ne me combats pas pour ma mort. Tu me combats parce que c'est tout ce que tu es. C'est ça ?</p>
+  <p>La chose ne répondit pas.</p>
+  <p>Sa dernière pensée consciente fut, étrangement, pour les quarante et une encoches sur Grindjär. Il n'avait pas eu le temps d'en tailler une quarante-deuxième.</p>
+
+  <div class="notif warn">[ ⚠ MORT DÉTECTÉE — Ulfrek le Fendu — Niveau 47 — Wyrd final : 891 ]</div>
+
+  <div class="separator">⁂</div>
+
+  <span class="section-num">VII.</span>
+
+  <p class="drop-cap">Il n'y avait rien.</p>
+  <p>Lumière, obscurité, sensation — rien. L'absence de douleur était la première chose qu'il nota, parce que la douleur l'avait accompagné si longtemps qu'il ne savait plus ce que c'était de ne plus l'avoir.</p>
+  <p>Puis une voix. Ou ce qui en tenait lieu.</p>
+
+  <div class="ymnir-dialogue">— Tu es mort.</div>
+
+  <p>Ulfrek n'avait rien à quoi répondre. Corps absent. Gorge absente. La conscience nue, suspendue dans le rien.</p>
+
+  <div class="ymnir-dialogue">— Quarante-sept niveaux. Quatre-vingt-onze de Wyrd. Quarante et une encoches. Une vie entière bâtie dans le sang et la certitude. Et tu es mort en neuf minutes contre quelque chose qui ne savait même ton nom.</div>
+
+  <p>La cruauté était absente. La compassion aussi. Un fait énoncé avec la précision d'une balance qui affiche un poids.</p>
+
+  <div class="ymnir-dialogue">— Ymnir. Je précède. Je mesure. Ta mort n'entre dans aucun de mes rôles, Ulfrek le Fendu — elle était dans le Wyrd depuis longtemps. Tout Wyrd a une limite. Le tien vient d'être atteint.</div>
+
+  <p>— Alors c'est fini.</p>
+
+  <div class="ymnir-dialogue">— Non.</div>
+
+  <p>Dans le néant, le temps n'avait aucune texture — mais Ulfrek perçut une pause.</p>
+
+  <div class="ymnir-dialogue">— Je pèse des commencements. Et le tien — quelque chose dans ton commencement demeure intact. Quelque chose que Voryn a laissé inachevé en te tuant.</div>
+
+  <div class="ymnir-dialogue">— Ce que je t'offre dépasse le choix — c'est un fait que j'annonce avant qu'il se produise, parce que c'est ma nature d'annoncer les mesures avant de les prendre.</div>
+
+  <div class="ymnir-dialogue">— Mais tu aurais choisi oui de toute façon.</div>
+
+  <p>Ce qui restait d'Ulfrek n'avait rien à répondre à ça. Parce que c'était vrai.</p>
+
+  <div class="separator">⁂</div>
+
+  <span class="section-num">VIII.</span>
+
+  <p>La douleur revint en premier.</p>
+  <p>Violente, totale, sans la moindre progressivité — une brutalité de résurrection que rien dans ses vingt-trois ans de combat n'avait préparée, parce que la mort n'avait aucun précédent à lui opposer. Chaque nerf arraché du néant en même temps. Chaque muscle convoqué dans un hurlement qui n'avait pas de bouche pour sortir. La résurrection tenait de la déchirure, en rien d'une naissance.</p>
+  <p>Il ouvrit les yeux.</p>
+  <p>Le plateau de Skarveld. Les colonnes brisées. La pierre noire striée de givre. Le ciel gris d'aube au-dessus — un ciel ordinaire, sans poids, sans signification, le ciel le plus banal qu'il eût jamais vu et le plus beau par contraste avec le néant qu'il venait de traverser.</p>
+  <p>Grindjär à un mètre de lui, couchée sur la roche, les quarante et une encoches visibles dans la lumière grise de l'aube.</p>
+  <p>Voryn avait disparu.</p>
+  <p>Il se leva. Lentement. Des genoux qui protestèrent. Des côtes qui envoyaient un signal douloureux à chaque mouvement. Il se leva quand même. Il ramassa Grindjär. Quatre-vingt-sept livres. Il connaissait le chiffre — mais la sensation était différente. Avant, une extension du bras. Maintenant, du poids, rien de plus.</p>
+  <p>Il la tint quand même.</p>
+
+  <!-- STAT BLOCK Björn -->
+  <div class="stat-block dead" style="margin-top:40px;">
+    <div class="stat-name dead-name">BJÖRN HALGRÏM</div>
+    <div class="stat-bar"><span>Niveau</span><span class="stat-val">1</span></div>
+    <div class="stat-bar"><span>Wyrd</span><span style="color:var(--ice-dim)">0 — NON CLASSÉ</span></div>
+    <hr class="stat-divider">
+    <div class="stat-section">Corps</div>
+    <div class="stat-bar"><span>Force</span><span class="stat-val">0</span></div>
+    <div class="stat-bar"><span>Endurance</span><span class="stat-val">0</span></div>
+    <div class="stat-bar"><span>Agilité</span><span class="stat-val">0</span></div>
+    <div class="stat-bar"><span>Résistance</span><span class="stat-val">0</span></div>
+    <div class="stat-section">Armes maîtrisées</div>
+    <div style="color:var(--ice-dim); font-size:11px;">Aucune</div>
+    <div class="stat-section">Runes actives</div>
+    <div style="color:var(--ice-dim); font-size:11px;">Aucune</div>
+    <hr class="stat-divider">
+    <div class="stat-ymnir blink">Ymnir observe.</div>
+  </div>
+
+  <p>Il fixa le panneau un long moment.</p>
+  <p>Zéro partout. Aucune rune. Niveau 1. Un nom qu'il reconnaissait — Björn Halgrïm — sans savoir d'où il venait, sans savoir pourquoi il lui appartenait désormais, sans savoir qui avait décidé qu'il s'appellerait ainsi à partir de cet instant.</p>
+  <p>Il savait qu'il avait été Ulfrek le Fendu. Ce que ce nom signifiait, il le savait aussi — la réputation, les quarante et une encoches, le niveau 47, le Wyrd légendaire. Le résultat était intact. Le chemin, lui, était effacé. Le titre d'un livre dont toutes les pages auraient été arrachées.</p>
+  <p>Il se leva. Il ramassa Grindjär. Le vent recommença à souffler.</p>
+  <p>Bien sûr. Le silence avait appartenu à Voryn. Voryn parti — retourné à son entre-deux, à son existence incomplète et éternelle — le Skarveld reprenait sa respiration.</p>
+  <p>Björn Halgrïm regarda le ciel. Niveau 1. Stats à zéro. Un nom neuf. Une hache qu'il ne savait plus vraiment tenir.</p>
+  <p>Et quelque part en lui, sous les décombres de ce qu'il avait été, quelque chose qui pulsait — la rage était absente, l'arrogance aussi, morte sur le plateau avec Ulfrek. Quelque chose de plus calme et de plus dangereux.</p>
+  <p>La certitude que zéro était un matin, rien d'autre.</p>
+  <p style="text-align:center; font-family: var(--display); font-size: 15px; letter-spacing: 0.15em; color: var(--blue); margin-top: 40px;">C'était un commencement.</p>
+
+  <div class="notif" style="text-align:center; margin-top: 32px;">[ Ymnir observe. ]</div>
+
+  <p style="text-align:center; font-family:var(--mono); font-size:12px; color:var(--ice-dim); margin-top:48px; letter-spacing:0.2em;">— FIN DU PROLOGUE —</p>
+
+</article>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta" id="cta">
+  <span class="section-label">[ La suite arrive ]</span>
+  <h3>Wyrd Zéro — Tome I</h3>
+  <p>Ce n'était qu'un commencement. Björn Halgrïm a encore tout à construire — et Voryn n'a pas oublié ce qu'il a laissé inachevé.</p>
+  <a href="https://www.facebook.com/veramoon" class="cta-btn" target="_blank" rel="noopener">
+    Suivre Vera Moon sur Facebook
+  </a>
+  <div class="author-sig">
+    <p>Écrit par <span>Zorveth</span> &nbsp;·&nbsp; LitRPG Viking &nbsp;·&nbsp; Bientôt sur Amazon KDP</p>
+  </div>
+</section>
+
+<script>
+  // Sticky bar
+  const bar = document.getElementById('stickyBar');
+  const hero = document.querySelector('.hero');
+  const observer = new IntersectionObserver(
+    ([e]) => bar.classList.toggle('visible', !e.isIntersecting),
+    { threshold: 0 }
+  );
+  observer.observe(hero);
+</script>
+</body>
+</html>
